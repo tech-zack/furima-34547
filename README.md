@@ -24,47 +24,71 @@ Things you may want to cover:
 * ...
 ## users テーブル
 
-| Column   | Type   | Options     |
-| -------- | ------ | ----------- |
-| email    | string |  NOT NULL   |
-| password | string |  NOT NULL   |
-| nickname | string |  NOT NULL   |
-| birthday | string |  NOT NULL   |
-|  name    | string |  NOT NULL   |
+| Column               | Type   | Options               |
+| ---------------      | ------ | --------------------- |
+| nickname             | string |  NOT NULL             |
+| email                | string |  NOT NULL unique :true|
+| encrypted_password   | string |  NOT NULL             |
+| first_name_hurigana  | string |  NOT NULL             |
+| first_name           | string |  NOT NULL             |
+| last_name _hurigana  | string |  NOT NULL             |
+| last_name            | string |  NOT NULL             |
+| date                 |  date  |  NOT NULL             |
 
 
 ### Association
 
-- has_many :prototypes
-- has_many :comments
+- has_many :items
+- has_many : buys
 
-## furimas テーブル
+## items テーブル
 
-| Column     | Type           | Options     |
-| ---------- | -------------  | ----------- |
-|   title    | string         |   NOT NULL  |
-| catch_copy | text           |   NOT NULL  |
-|   concept  | text           |   NOT NULL  |
-|   image    | ActiveStorage  |
-|    user    | references     | 
-
-### Association
-
-- belongs_to : users
-- has_many   : comments
-
-
-## comments テーブル
-
-| Column     | Type        | Options     |
-| ---------- | ----------- | ----------- |
-|   text     | text        |   NOT NULL  |
-|   user     | references  |  
-|   prototype| references  |   
+| Column             | Type           | Options          |
+| ---------------    | -------------  | -----------      |
+|   title            |  string        |   NOT NULL       |
+| category_id        |  integer       |   NOT NULL       |
+|   status_id        |  integer       |   NOT NULL       |
+|    user            | references     | foreigen_key:true|
+| delivery_fee_id    |  integer       |   NOT NULL       |
+| delivery_source_id |  integer       |   NOT NULL       |
+| delivery_date_id   |  integer       |   NOT NULL       |
+|  product_price     |  integer       |   NOT NULL       |
+|  description       |  text          |   NOT NULL       |
 
 ### Association
 
-- belongs_to :users
-- belongs_to :prototypes
+- belongs_to : user
+- has_one : buy
 
 
+
+## areas テーブル
+
+| Column               | Type        | Options          |
+| -----------------    | ----------- | -----------      |
+|   municipalities     | string      |   NOT NULL       |
+|   address            | string      |   NOT NULL       |
+|   building_number    | string      |  
+|   order              | references  | foreigen_key:true| 
+|   postal_code        | string      |   NOT NULL       |
+|  phone_number        | string      |   NOT NULL       |
+| delivery_source_id   |  integer    |   NOT NULL       |
+
+### Association
+
+- 
+- belongs_to : buy
+-
+
+## buys テーブル
+
+| Column               | Type        | option       |
+| -----------------    | ----------- | -------------|
+|   user               | references  |  foreigen key| 
+|   item               | references  |  foreigen key|
+
+### Association
+
+- belongs_to : user
+- has_one  : area
+- belongs_to : item
