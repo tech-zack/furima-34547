@@ -82,10 +82,10 @@ Things you may want to cover:
 
 ## buys テーブル
 
-| Column               | Type        | option       |
-| -----------------    | ----------- | -------------|
-|   user               | references  |  foreigen key| 
-|   item               | references  |  foreigen key|
+| Column               | Type        | option            |
+| -----------------    | ----------- | -------------     | 
+|   user               | references  |  foreigen key:true| 
+|   item               | references  |  foreigen key:true|
 
 ### Association
 
