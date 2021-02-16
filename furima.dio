@@ -1,4 +1,4 @@
-<mxfile host="65bd71144e" modified="2021-02-16T07:47:14.927Z" agent="5.0 (Macintosh; Intel Mac OS X 11_1_0) AppleWebKit/537.36 (KHTML, like Gecko) Code/1.53.2 Chrome/87.0.4280.141 Electron/11.2.1 Safari/537.36" etag="ZQS9OUMsUWjyGzHGHSJr" version="14.2.4" type="embed">
+<mxfile host="65bd71144e" modified="2021-02-16T08:18:15.440Z" agent="5.0 (Macintosh; Intel Mac OS X 11_1_0) AppleWebKit/537.36 (KHTML, like Gecko) Code/1.53.2 Chrome/87.0.4280.141 Electron/11.2.1 Safari/537.36" etag="F4-L6PQfkpWe6O5Bfyg0" version="14.2.4" type="embed">
     <diagram id="Qit2CvinwSENeYdin00_" name="ページ1">
         <mxGraphModel dx="728" dy="680" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
             <root>
@@ -13,7 +13,7 @@
                 <mxCell id="57" value="buys&lt;br&gt;&lt;br&gt;user&lt;br&gt;item" style="whiteSpace=wrap;html=1;align=center;" parent="1" vertex="1">
                     <mxGeometry x="270" y="290" width="240" height="160" as="geometry"/>
                 </mxCell>
-                <mxCell id="58" value="areas&lt;br&gt;&lt;br&gt;municipalities&lt;br&gt;address&lt;br&gt;building_number&lt;br&gt;postal_code&lt;br&gt;phone_number&lt;br&gt;user" style="whiteSpace=wrap;html=1;align=center;" parent="1" vertex="1">
+                <mxCell id="58" value="areas&lt;br&gt;&lt;br&gt;municipalities&lt;br&gt;address&lt;br&gt;building_number&lt;br&gt;postal_code&lt;br&gt;phone_number&lt;br&gt;user&lt;br&gt;delivery_source_id" style="whiteSpace=wrap;html=1;align=center;" parent="1" vertex="1">
                     <mxGeometry x="260" y="20" width="240" height="190" as="geometry"/>
                 </mxCell>
                 <mxCell id="67" value="" style="edgeStyle=entityRelationEdgeStyle;fontSize=12;html=1;endArrow=ERoneToMany;startArrow=ERmandOne;" parent="1" edge="1">

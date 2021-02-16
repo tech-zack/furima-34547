@@ -39,44 +39,45 @@ Things you may want to cover:
 ### Association
 
 - has_many :items
-- has_many : buy
+- has_many : buys
 
 ## items テーブル
 
-| Column             | Type           | Options     |
-| ---------------    | -------------  | ----------- |
-|   title            |  string        |   NOT NULL  |
-| category_id        |  integer       |   NOT NULL  |
-|   status_id        |  integer       |   NOT NULL  |
-|    user            | references     | foreigen key|
-| delivery_fee_id    |  integer       |   NOT NULL  |
-| delivery_source_id |  integer       |   NOT NULL  |
-| delivery_date_id   |  integer       |   NOT NULL  |
-|  product_price     |  string        |   NOT NULL  |
-|  description       |  string        |   NOT NULL  |
+| Column             | Type           | Options          |
+| ---------------    | -------------  | -----------      |
+|   title            |  string        |   NOT NULL       |
+| category_id        |  integer       |   NOT NULL       |
+|   status_id        |  integer       |   NOT NULL       |
+|    user            | references     | foreigen_key:true|
+| delivery_fee_id    |  integer       |   NOT NULL       |
+| delivery_source_id |  integer       |   NOT NULL       |
+| delivery_date_id   |  integer       |   NOT NULL       |
+|  product_price     |  integer       |   NOT NULL       |
+|  description       |  string        |   NOT NULL       |
 
 ### Association
 
-- belongs_to : users
+- belongs_to : user
 - has_one : buy
 
 
 
 ## areas テーブル
 
-| Column               | Type        | Options     |
-| -----------------    | ----------- | ----------- |
-|   municipalities     | string      |   NOT NULL  |
-|   address            | string      |   NOT NULL  |
+| Column               | Type        | Options          |
+| -----------------    | ----------- | -----------      |
+|   municipalities     | string      |   NOT NULL       |
+|   address            | string      |   NOT NULL       |
 |   building_number    | string      |  
-|   user               | references  | foreigen key| 
-|   postal_code        | string      |   NOT NULL  |
-|  phone_number        | string      |   NOT NULL  |
+|   user               | references  | foreigen_key:true| 
+|   postal_code        | string      |   NOT NULL       |
+|  phone_number        | string      |   NOT NULL       |
+| delivery_source_id   |  integer    |   NOT NULL       |
 
 ### Association
 
 - 
-- belongs_to : buys
+- belongs_to : buy
 -
 
 ## buys テーブル
@@ -88,6 +89,6 @@ Things you may want to cover:
 
 ### Association
 
-- belongs_to : users
-- has_one  : areas
-- has_one  : items
+- belongs_to : user
+- has_one  : area
+- has_one  : item
