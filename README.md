@@ -24,16 +24,16 @@ Things you may want to cover:
 * ...
 ## users テーブル
 
-| Column               | Type   | Options     |
-| ---------------      | ------ | ----------- |
-| nickname             | string |  NOT NULL   |
-| email                | string |  NOT NULL  unique |
-| encrypted_password   | string |  NOT NULL   |
-| first_name(hurigana) | string |  NOT NULL   |
-| first_name           | string |  NOT NULL   |
-| last_name (hurigana) | string |  NOT NULL   |
-| last_name            | string |  NOT NULL   |
-| date                 |  date  |  NOT NULL   |
+| Column               | Type   | Options               |
+| ---------------      | ------ | --------------------- |
+| nickname             | string |  NOT NULL             |
+| email                | string |  NOT NULL unique :true|
+| encrypted_password   | string |  NOT NULL             |
+| first_name_hurigana  | string |  NOT NULL             |
+| first_name           | string |  NOT NULL             |
+| last_name _hurigana  | string |  NOT NULL             |
+| last_name            | string |  NOT NULL             |
+| date                 |  date  |  NOT NULL             |
 
 
 ### Association
@@ -52,6 +52,8 @@ Things you may want to cover:
 | delivery_fee_id    |  integer       |   NOT NULL  |
 | delivery_source_id |  integer       |   NOT NULL  |
 | delivery_date_id   |  integer       |   NOT NULL  |
+|  product_price     |  string        |   NOT NULL  |
+|  description       |  string        |   NOT NULL  |
 
 ### Association
 
@@ -66,7 +68,7 @@ Things you may want to cover:
 | -----------------    | ----------- | ----------- |
 |   municipalities     | string      |   NOT NULL  |
 |   address            | string      |   NOT NULL  |
-|   building_number    | string      |   NOT NULL  |
+|   building_number    | string      |  
 |   user               | references  | foreigen key| 
 |   postal_code        | string      |   NOT NULL  |
 |  phone_number        | string      |   NOT NULL  |
@@ -74,7 +76,7 @@ Things you may want to cover:
 ### Association
 
 - 
-- has_many : buys
+- belongs_to : buys
 -
 
 ## buys テーブル
@@ -82,11 +84,10 @@ Things you may want to cover:
 | Column               | Type        | option       |
 | -----------------    | ----------- | -------------|
 |   user               | references  |  foreigen key| 
-|   user_id            | references  |  foreigen key| 
-|   item_id            | references  |  foreigen key|
+|   item               | references  |  foreigen key|
 
 ### Association
 
 - belongs_to : users
-- belongs_to : areas
--
+- has_one  : areas
+- has_one  : items
