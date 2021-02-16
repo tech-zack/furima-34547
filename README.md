@@ -53,7 +53,7 @@ Things you may want to cover:
 | delivery_source_id |  integer       |   NOT NULL       |
 | delivery_date_id   |  integer       |   NOT NULL       |
 |  product_price     |  integer       |   NOT NULL       |
-|  description       |  string        |   NOT NULL       |
+|  description       |  text          |   NOT NULL       |
 
 ### Association
 
