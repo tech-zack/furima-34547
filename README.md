@@ -69,7 +69,7 @@ Things you may want to cover:
 |   municipalities     | string      |   NOT NULL       |
 |   address            | string      |   NOT NULL       |
 |   building_number    | string      |  
-|   user               | references  | foreigen_key:true| 
+|   order              | references  | foreigen_key:true| 
 |   postal_code        | string      |   NOT NULL       |
 |  phone_number        | string      |   NOT NULL       |
 | delivery_source_id   |  integer    |   NOT NULL       |
