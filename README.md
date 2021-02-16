@@ -24,47 +24,61 @@ Things you may want to cover:
 * ...
 ## users テーブル
 
-| Column   | Type   | Options     |
-| -------- | ------ | ----------- |
-| email    | string |  NOT NULL   |
-| password | string |  NOT NULL   |
-| nickname | string |  NOT NULL   |
-| birthday | string |  NOT NULL   |
-|  name    | string |  NOT NULL   |
+| Column     | Type   | Options     |
+| --------   | ------ | ----------- |
+| nickname   | string |  NOT NULL   |
+| e-mail     | string |  NOT NULL   |
+| password   | string |  NOT NULL   |
+| first_name | string |  NOT NULL   |
+| last_name  | string |  NOT NULL   |
+| birthday   | string |  NOT NULL   |
 
 
 ### Association
 
-- has_many :prototypes
-- has_many :comments
+- has_many :items
+- has_one : areas
+- has_one : buys
 
-## furimas テーブル
+## items テーブル
 
-| Column     | Type           | Options     |
-| ---------- | -------------  | ----------- |
-|   title    | string         |   NOT NULL  |
-| catch_copy | text           |   NOT NULL  |
-|   concept  | text           |   NOT NULL  |
-|   image    | ActiveStorage  |
-|    user    | references     | 
+| Column          | Type           | Options     |
+| --------------- | -------------  | ----------- |
+|   title         |  string        |   NOT NULL  |
+| category        |  string        |   NOT NULL  |
+|   status        |  string        |   NOT NULL  |
+|   image         | ActiveStorage  |
+|    user         | references     | 
+| delivery_fee    |  string        |   NOT NULL  |
+| delivery_source |  string        |   NOT NULL  |
+| delivery_date   |  string        |   NOT NULL  |
 
 ### Association
 
 - belongs_to : users
-- has_many   : comments
+- has_one : areas
 
 
-## comments テーブル
 
-| Column     | Type        | Options     |
-| ---------- | ----------- | ----------- |
-|   text     | text        |   NOT NULL  |
-|   user     | references  |  
-|   prototype| references  |   
+## areas テーブル
+
+| Column               | Type        | Options     |
+| -----------------    | ----------- | ----------- |
+|   shipping_adress    | string      |   NOT NULL  |
+|   user               | references  |  
+|   postal_code        | string      |   NOT NULL  |
+|  phone_number        | string      |   NOT NULL  |
 
 ### Association
 
-- belongs_to :users
-- belongs_to :prototypes
+- has_one : areas
+- has_one : buys
+- has_one : users
+
+## buys テーブル
+
+| Column               | Type        | 
+| -----------------    | ----------- | 
+|   user               | references  |  
 
 
