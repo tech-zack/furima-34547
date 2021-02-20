@@ -9,10 +9,11 @@ class Item < ApplicationRecord
   belongs_to :delivery_source
   belongs_to :delivery_date
 
-  validates :image, presence: true
-  validates :title, presence: true
-  validates :description, presence: true
-  validates :product_price, presence: true
+  with_options presence: true do
+    validates :image
+    validates :title
+    validates :description
+  end
 
   with_options numericality: { other_than: 1 } do
     validates :category_id
@@ -22,4 +23,11 @@ class Item < ApplicationRecord
     validates :delivery_date_id
   end
 
+  validates :product_price,format: {with:/\A[0-9]+\z/}
+  validates :product_price,numericality: {greater_than: 299}
+  validates :product_price,numericality: {less_than: 10000000}
+
+
+
 end
+ 

@@ -56,8 +56,59 @@ RSpec.describe Item, type: :model do
   it 'product_priceが空では保存できないこと' do
     @item.product_price = nil
     @item.valid?
-    expect(@item.errors.full_messages).to include("Product price can't be blank")
-  end 
+    expect(@item.errors.full_messages).to include("Product price is invalid")
+  end
+  it 'category_idが1では保存できないこと' do
+    @item.category_id = 1
+    @item.valid?
+    expect(@item.errors.full_messages).to include("Category must be other than 1")
+  end
+  it 'status_idが1では保存できないこと' do
+    @item.status_id = 1
+    @item.valid?
+    expect(@item.errors.full_messages).to include("Status must be other than 1")
+  end
+  it 'delivery_fee_idが1では保存できないこと' do
+    @item.delivery_fee_id = 1
+    @item.valid?
+    expect(@item.errors.full_messages).to include("Delivery fee must be other than 1")
+  end
+  it 'delivery_source_idが1では保存できないこと' do
+    @item.delivery_source_id = 1
+    @item.valid?
+    expect(@item.errors.full_messages).to include("Delivery source must be other than 1")
+  end
+  it 'delivery_date_idが1では保存できないこと' do
+    @item.delivery_date_id = 1
+    @item.valid?
+    expect(@item.errors.full_messages).to include("Delivery date must be other than 1")
+  end
+  it 'product_priceが全角文字では保存できないこと' do
+    @item.product_price = "１００００"
+    @item.valid?
+    expect(@item.errors.full_messages).to include("Product price is not a number")
+  end
+  it 'product_priceが299円以下では保存できないこと' do
+    @item.product_price = 299
+    @item.valid?
+    expect(@item.errors.full_messages).to include("Product price must be greater than 299")
+  end
+  it 'product_priceが10,000,000以上では保存できないこと' do
+    @item.product_price = 10000000
+    @item.valid?
+    expect(@item.errors.full_messages).to include("Product price must be less than 10000000")
+  end
+  it 'product_priceが半角英数混合では保存できないこと' do
+    @item.product_price = "a10000"
+    @item.valid?
+    expect(@item.errors.full_messages).to include("Product price is not a number")
+  end
+  it 'product_priceが半角英語では保存できないこと' do
+    @item.product_price = "aaaaa"
+    @item.valid?
+    expect(@item.errors.full_messages).to include("Product price is not a number")
+  end
+
 end
 end
 end
