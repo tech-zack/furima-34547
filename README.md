@@ -80,7 +80,7 @@ Things you may want to cover:
 - belongs_to : buy
 -
 
-## buys テーブル
+## orders テーブル
 
 | Column               | Type        | option            |
 | -----------------    | ----------- | -------------     | 
