@@ -14,6 +14,7 @@ RSpec.describe OrderAddress, type: :model do
       expect(@order).to be_valid
     end
     it '建物名がなくても入力できる' do
+      @order.building  = ""
       expect(@order).to be_valid
     end
   end
