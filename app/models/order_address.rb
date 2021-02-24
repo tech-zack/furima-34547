@@ -8,6 +8,8 @@ include ActiveModel::Model
     validates :item_id
     validates :user_id
     validates :token
+    validates :phone_number
+    validates :postal_code
   end
 
     validates :delivery_source_id, numericality: { other_than: 1 } 
