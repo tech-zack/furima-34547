@@ -51,12 +51,12 @@ RSpec.describe OrderAddress, type: :model do
     expect(@order.errors.full_messages).to include("Delivery source must be other than 1")
   end
   it 'postal_codeには-がないと保存できないこと' do
-    @order.postal_code = 1234567
+    @order.postal_code = '1234567'
     @order.valid?
     expect(@order.errors.full_messages).to include("Postal code is invalid. Include hyphen(-)")
   end
   it 'phone_munberは12桁以上では保存できないこと' do
-    @order.phone_number = 000000000000
+    @order.phone_number = '000000000000'
     @order.valid?
     expect(@order.errors.full_messages).to include("Phone number is invalid")
   end
