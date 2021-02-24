@@ -7,6 +7,5 @@ FactoryBot.define do
     delivery_source_id {2}
     token {"tok_abcdefghijk00000000000000000"}
     building{"東京ハイツ"}
-    
   end
 end

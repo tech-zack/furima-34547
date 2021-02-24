@@ -1,13 +1,13 @@
 class CreateAreas < ActiveRecord::Migration[6.0]
   def change
     create_table :areas do |t|
-      t.string :city
-      t.string :address
+      t.string :city                           ,null: false
+      t.string :address                        ,null: false
       t.string :building
-      t.string :postal_code
-      t.string :phone_number
-      t.integer  :delivery_source_id
-      t.references :order, foreign_key: true
+      t.string :postal_code                    ,null: false
+      t.string :phone_number                   ,null: false
+      t.integer  :delivery_source_id           ,null: false
+      t.references :order, foreign_key: true   ,null: false
       
       t.timestamps
     end
